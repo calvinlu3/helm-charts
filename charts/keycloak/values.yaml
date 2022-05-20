@@ -26,7 +26,7 @@ hostAliases: []
 #     - "my.host.com"
 
 # Indicates whether information about services should be injected into Pod's environment variables, matching the syntax of Docker links
-enableServiceLinks: true
+# enableServiceLinks: true
 
 # Pod management policy. One of `Parallel` or `OrderedReady`
 podManagementPolicy: Parallel
@@ -167,14 +167,14 @@ readinessProbe: |
   timeoutSeconds: 1
 
 # Startup probe configuration
-startupProbe: |
-  httpGet:
-    path: /auth/
-    port: http
-  initialDelaySeconds: 30
-  timeoutSeconds: 1
-  failureThreshold: 60
-  periodSeconds: 5
+# startupProbe: |
+#   httpGet:
+#     path: /auth/
+#     port: http
+#   initialDelaySeconds: 30
+#   timeoutSeconds: 1
+#   failureThreshold: 60
+#   periodSeconds: 5
 
 # Pod resource requests and limits
 resources: {}

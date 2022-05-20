@@ -127,10 +127,6 @@ spec:
           readinessProbe:
             {{- tpl . $ | nindent 12 }}
           {{- end }}
-          {{- with .Values.startupProbe }}
-          startupProbe:
-            {{- tpl . $ | nindent 12 }}
-          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -157,7 +153,9 @@ spec:
       hostAliases:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if  .Values.enableServiceLinks }}
       enableServiceLinks: {{ .Values.enableServiceLinks }}
+      {{- end}}
       restartPolicy: {{ .Values.restartPolicy }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
